@@ -1,0 +1,27 @@
+NOTES
+
+Git
+	> git add .
+	add			Mark the target directory to be commited
+	.			Pick the current directory as the target
+	> git commit -m "<insert message here>"
+	commit		Commit for changes to local repo
+	-m			Insert a message to the target directory
+	> git push
+		push		Push changes to the online repo
+	> git pull
+		pull		Pull changes to the local repo
+	> git status
+		status		Check the status of the repo
+	> git checkout <insert branch here>
+		checkout	Move to another branch
+
+Browser-Sync
+	> browser-sync start --server --directory --files "*"
+	start		Start the Browser-Sync
+	--server	Start as server
+	--directory	Show the current cmd directory
+	--files		Pick which files to watch over
+	*			Pick all files in the current directory
+
+	
