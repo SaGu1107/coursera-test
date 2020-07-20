@@ -17,11 +17,12 @@ Git
 		checkout	Move to another branch
 
 Browser-Sync
-	> browser-sync start --server --directory --files "*"
+	> browser-sync start --server --directory --files "**/*"
 	start		Start the Browser-Sync
 	--server	Start as server
 	--directory	Show the current cmd directory
 	--files		Pick which files to watch over
+	**			Pick all folders in the current directory
 	*			Pick all files in the current directory
-
+	**/*		Pick all files in all folders in the current directory 
 	
