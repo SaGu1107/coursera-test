@@ -119,3 +119,105 @@
 		..Relative positioning doesn't obstruct the normal doocument flow (the next object's position is not changed). Its position is moved from its original position. Its position will also affect the contained element's positioning (so that the contained object's position will be relative to this container)
 		..Absolute positioning obstruct/is removed from the normal document flow, so other object's position will be changed too. If it's not contained in a relative positioned element, the object will be placed relative to the relative positioned ancestor (if there isn't any, automatically relative to the html tag)
 -->
+<!-- JS NOTES
+	JAVASCRIPT TYPES
+		> Object Types
+		  Constructed data structure (multi name-and-value pair)
+		> Primitive Types
+		  >> Boolean (TRUE or FALSE)
+		  >> Undefined (Defined, but has no value set)
+		  >> Null (Signifies lack of value/Value set to Null)
+		  >> Number (Double-precision 64-bit floating point)
+		  >> String
+		  >> Symbol
+	BOOLEAN VALUE OF TYPES
+		null 		FALSE
+		undefined 	FALSE
+		0 			FALSE
+		""			FALSE
+		//in JS || (OR) returns true on the first true
+		//for string validation (not empty), X = X||something
+		//if there's non Boolean return process in a condition, the process is still done 
+	OBJECT
+		Object creation
+			1. var objectName = new object();
+			2. var objectName = {
+				property1: value1, 
+				..,
+				"property name with space": valueX,
+			    propertyN: valueN
+			   };
+			3. function ConstructorName (argument){
+				this.xx = xx; (this refer to ConstructorName as an object)
+			}
+
+				var objectName = new ConstructorName(az); //This will make a new object
+		Object.property1.property2
+			>property1 must be defined first as a new object
+			>property2 doesn't really need to be defined
+		Calling/Defining An Object
+			Object.propertyNameWithoutSpaceOnly
+			Object["property name with space"]
+	FUNCTIONS
+		> Function is an object
+		> If a function has a function in its scope, the input parameter can be passed via the variable that contain the return value of the function, e.g.: (universal function referral)
+			function makeMultiplier(multiplier){
+				function myFunc(x){
+					return multiplier*x;
+				};
+
+				return myFunc;
+			};
+			
+			var multiplyBy5 = makeMultiplier(5);
+			console.log(multiplyBy5(1000));
+
+			Notes:
+				myFunc(x) is defined inside makeMultiplier(multiplier).
+				var multiplyBy5 contains the result of makeMultiplier(5)
+				x can be passed by using
+					multiplyBy5(x);
+				which will return a value of the 5*1000;
+		> If a function is called into console without having a parameter spac "()", the console will print the function as a string
+		> Functions can be passed as an argument, by declaring its container variable (e.g. multiplyBy5) as a parameter value, in this case without "()", e.g.:
+			function doOperation(x,operation){
+				return operation(x);
+			}.
+			var result = doOperation(1000, multiplyBy5);
+			console.log(result);
+		> Passing Var by Values vs by Ref
+			>> By Value (Primitive Type)
+			   a is copied to b. Any changes in b/a doesn't change the value in a/b.
+			   //Copy value to a new memory address 
+			>> By Ref (Object Type)
+			   a is copied to b. Any changes in b/a changes the value in a/b
+ 			   //Copy the address it's pointing to a new memory address
+		> If the arguments given to a function are more than needed, the function only uses the required one. (the rest is abandoned)
+		> Function Constructor is used to create a new object. Usually named with a UPPERCASE on its first letter. The function MUST returns nothing. Creates a new object when 
+			var objName = new Constructor
+		> prototype is a property of an object (from the constructor), so that a function can return a value multiple times for different objects by only creating one function
+		> "this" in JS refers to the the object where it is declared. 
+			//In inner function (function inside a function Constructor) where you use it with a variable
+				var x = function (){
+					something
+				}, 
+			"this" does not refer to the Constructor, instead to the window (global) <some refer this as a bug>. To handle this (in case the inner function change a property in the object), pass the variable this by reference (automatically, since its an object) to a variable (self), so to refer to the Constructor property, instead of using "this", use "self"
+	ARRAY
+		> Creating Array
+		 1. var arrayName = new Array();
+			arrayName[index] = value; // can be primitive or object or even function
+		 2.	var arrayName = [value1, value2, value3];
+		> Has a property of length
+		> Basically an object with a prop (property) of a sequential number
+	NAMESPACE
+		> Be careful when using two or more script files that has a same global scope name variable. The older value will be overwritten by the later value of the global scope variable. To avoid this, a value can be defined/assigned inside a function execution contexr or as a property of an object. OR by using IIFE (Immediately Invoked Function Expression)
+		> IIFE
+			(function (arg){
+				//function body here
+			})(argValue);
+		> Exposing a variable to window
+			function (window){
+				//function body here
+				window.variable = variable;
+			})
+-->
